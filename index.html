@@ -52,6 +52,7 @@
 <script src="https://cdn.webrtc-experiment.com/MediaStreamRecorder.js"></script>
 
 <script>
+const DUR = 5000;
 var filename = 'greet.mp3';
 var audio = new Audio(filename);
 function notify() {
@@ -92,7 +93,7 @@ function getStream (type) {
 	document.getElementById('rec-btn').classList.remove('disabled');
 	document.getElementById('rec-btn').classList.add('pulse');
     };
-    mediaRecorder.start(3000);
+    mediaRecorder.start(DUR);
 
     if ('srcObject' in mediaControl) {
       mediaControl.srcObject = stream;
