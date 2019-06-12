@@ -9,29 +9,30 @@
   <base target="_blank">
   <title>CC-AI - recording test</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
 
 <div class="container" style="margin-top: 10px">
-  <div class="row">
-    <div class="col-sm-12">
+  <div class="row center">
+    <div class="col s12">
       <p><button type="button" class="btn btn-lg btn-default" onclick="getStream('audio')">Grab audio</button></p>
       <p><button type="button" class="btn-floating btn-large waves-effect waves-light blue" onclick="getStream('audio')"><i class="material-icons">mic</i></button></p>
-      
       <audio controls autoplay></audio>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-12">
+  <div class="row center">
+    <div class="col s12">
       <div id="audios"></div>
     </div>
   </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://cdn.webrtc-experiment.com/MediaStreamRecorder.js"></script>
-<script>
+
+  <script>
 function getUserMedia(options, successCallback, failureCallback) {
   var api = navigator.getUserMedia || navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia || navigator.msGetUserMedia;
