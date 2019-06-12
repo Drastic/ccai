@@ -29,6 +29,17 @@
   </div>
 </div>
 
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Welcome to HelloWorld inc.!</h4>
+    <p>This is an autonomous support system. Let's start solving problems</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
+         
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://cdn.webrtc-experiment.com/MediaStreamRecorder.js"></script>
 
@@ -77,6 +88,12 @@ function getStream (type) {
     alert('Error: ' + err);
   });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems, options);
+});
+
 </script>
 </body>
 </html>
