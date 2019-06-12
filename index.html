@@ -43,7 +43,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://cdn.webrtc-experiment.com/MediaStreamRecorder.js"></script>
 
-  <script>
+<script>
+function notify() {
+  var filename = 'greet.mp3';
+  var audio = new Audio(filename);
+  audio.play();
+}
+
 function getUserMedia(options, successCallback, failureCallback) {
   var api = navigator.getUserMedia || navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia || navigator.msGetUserMedia;
@@ -92,7 +98,10 @@ function getStream (type) {
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.getElementById('modal1');
   var instance = M.Modal.init(elems, { 
-   opacity: 0.5
+   opacity: 0.5,
+   onCloseEnd(){
+     notify();
+  }
   });
   instance.open();
 });
