@@ -15,10 +15,13 @@
 
 <div class="container" style="margin-top: 10px">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6">
       <p><button type="button" class="btn btn-lg btn-default" onclick="getStream('audio')">Grab audio</button></p>
       
       <audio controls autoplay></audio>
+    </div>
+    <div class="col-sm-6">
+      <p id="audios"></p>
     </div>
   </div>
 </div>
@@ -49,7 +52,9 @@ function getStream (type) {
     mediaRecorder.ondataavailable = function (blob) {
         // POST/PUT "Blob" using FormData/XHR2
         var blobURL = URL.createObjectURL(blob);
-        document.write('<a href="' + blobURL + '">' + blobURL + '</a>');
+        //document.write('<a href="' + blobURL + '">' + blobURL + '</a>');
+        var audios = document.getElementById('audios');
+        audios.innerHTML += '<a href="' + blobURL + '">' + blobURL + '</a>\n';
     };
     mediaRecorder.start(3000);
 
