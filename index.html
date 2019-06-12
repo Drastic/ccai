@@ -90,10 +90,11 @@ function getStream (type) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.modal');
-  var instances = M.Modal.init(elems, { 
+  var elems = document.getElementById('modal1');
+  var instance = M.Modal.init(elems, { 
    opacity: 0.5
   });
+  instance.open();
 });
 
 </script>
