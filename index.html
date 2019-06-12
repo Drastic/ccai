@@ -61,7 +61,7 @@ function getStream (type) {
         var audios = document.getElementById('audios');
         audios.innerHTML += '<p><a href="' + blobURL + '">' + blobURL + '</a></p>\n';
         mediaRecorder.stop();
-        mediaRecorder.stream.stop();
+        stream.getTracks().forEach(track => track.stop());
     };
     mediaRecorder.start(3000);
 
