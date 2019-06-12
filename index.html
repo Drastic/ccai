@@ -18,7 +18,7 @@
   <div class="row center">
     <div class="col s12">
       <p><button type="button" class="btn btn-lg btn-default" onclick="getStream('audio')">Grab audio</button></p>
-      <p><button type="button" class="btn-floating btn-large waves-effect waves-light blue" onclick="getStream('audio')"><i class="material-icons">mic</i></button></p>
+      <p><button type="button" id="rec-btn" class="btn-floating btn-large waves-effect waves-light blue" onclick="getStream('audio')"><i class="material-icons">mic</i></button></p>
       <audio controls autoplay></audio>
     </div>
   </div>
@@ -42,6 +42,7 @@ function getUserMedia(options, successCallback, failureCallback) {
 }
 
 function getStream (type) {
+	document.getElementById('rec-btn').classList.add('disabled');
   if (!navigator.getUserMedia && !navigator.webkitGetUserMedia &&
     !navigator.mozGetUserMedia && !navigator.msGetUserMedia) {
     alert('User Media API not supported.');
@@ -62,6 +63,7 @@ function getStream (type) {
         audios.innerHTML += '<p><a href="' + blobURL + '">' + blobURL + '</a></p>\n';
         mediaRecorder.stop();
         stream.getTracks().forEach(track => track.stop());
+	      document.getElementById('rec-btn').classList.remove('disabled');
     };
     mediaRecorder.start(3000);
 
